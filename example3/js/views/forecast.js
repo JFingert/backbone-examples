@@ -9,7 +9,7 @@ var ForecastView = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template(this.model.get('currently')));
+    this.$el.html(this.template(this.model.get('daily')));
     return this;
   }
 
