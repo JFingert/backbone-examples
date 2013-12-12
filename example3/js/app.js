@@ -21,9 +21,6 @@ app.views.summary = new SummaryView({model: app.models.currentWeather});
 app.views.details = new DetailView({model: app.models.currentWeather});
 app.views.forecast = new ForecastView({model: app.models.currentWeather});
 
-// app.views.details = new DetailView({model: app.models.currentWeather});
-// app.views.forecast = new ForecastView({model: app.models.currentWeather});
-
 window.app = app;
 
 $.getJSON(url + "?callback=?", null, function(weatherData) {

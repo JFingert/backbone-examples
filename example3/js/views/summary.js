@@ -1,5 +1,5 @@
 var SummaryView = Backbone.View.extend({
-  el: '#current', // every Backbone view has an associated DOM element
+  el: '#current',
 
   template: require('../../templates/summary.hbs'),
 
@@ -8,8 +8,11 @@ var SummaryView = Backbone.View.extend({
     this.render();
   },
 
-  render: function () {
-    this.$el.html(this.template(this.model.get('currently')));
+   render: function () {
+    var context = {}
+    context.currently = this.model.get('currently') || {};
+    context.today = this.model.get('daily') || {};
+    this.$el.html(this.template(context));
     return this;
   }
 

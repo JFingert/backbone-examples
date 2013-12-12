@@ -1,6 +1,5 @@
 var DetailView = Backbone.View.extend({
-	
-	el: '#details', // every Backbone view has an associated DOM element
+	el: '#details',
 
 	template: require('../../templates/details.hbs'),
 
@@ -9,16 +8,13 @@ var DetailView = Backbone.View.extend({
 		this.render();
 	},
 
-	render: function (context) {
-		this.$el.html(this.template(this.model.get('currently')));
-		return this;
-
-		// var context = {};
-		// context.timezone = this.model.get('timezone');
-		// context.currently = this.model.get('currently');
-
-		this.$el.html(this.template(context));
-	}
+	  render: function () {
+	    var context = {}
+	    context.currently = this.model.get('currently') || {};
+	    context.today = this.model.get('daily') || {};
+	    this.$el.html(this.template(context));
+	    return this;
+	  }
 
 });
 

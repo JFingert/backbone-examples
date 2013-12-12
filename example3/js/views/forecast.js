@@ -1,5 +1,5 @@
 var ForecastView = Backbone.View.extend({
-  el: '#forecast', // every Backbone view has an associated DOM element
+  el: '#forecast', 
 
   template: require('../../templates/forecast.hbs'),
 
@@ -9,7 +9,10 @@ var ForecastView = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template(this.model.get('daily')));
+    var context = {}
+    context.currently = this.model.get('currently') || {};
+    context.today = this.model.get('daily') || {};
+    this.$el.html(this.template(context));
     return this;
   }
 
