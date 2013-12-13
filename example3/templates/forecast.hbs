@@ -1,10 +1,17 @@
-<h2>Highs/Lows for the next 7 days:</h2>
-{{#each today.data}}: 
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>day</th><th>high</th><th>low</th><th>sunrise</th><th>sunset</th>
+		</tr>
+	</thead>
+<tbody>
 
-<h1>{{date.title}}</h1>
-<blockquote><pre>
-{{apparentTemperatureMin}}/{{apparentTemperatureMax}}
-</pre></blockquote>
+	{{#each sevenDayForecast}}
+	<tr>
+		<td>{{date}}</td> <td>{{maxTemp}} </td> <td>{{minTemp}}</td> <td>{{sunriseDude}} </td> <td>{{sunsetDude}} </td>
+	</tr>
+	{{/each}}
 
+</tbody>	
+</table>
 
-{{/each}}
